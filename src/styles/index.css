@@ -5,3 +5,31 @@ body,
 :root {
   font-family: "Bricolage Grotesque", sans-serif;
 }
+
+.square {
+  @apply h-6 w-6 rounded-sm bg-white;
+  animation: rotateSquare 10s linear infinite; /* Adjust duration and timing as needed */
+}
+
+@keyframes rotateSquare {
+  0% {
+    transform: rotate(0deg);
+    @apply bg-zinc-50;
+  }
+  25% {
+    transform: rotate(90deg);
+    @apply bg-zinc-200;
+  }
+  50% {
+    transform: rotate(180deg);
+    @apply bg-zinc-400;
+  }
+  75% {
+    transform: rotate(270deg);
+    @apply bg-zinc-200;
+  }
+  100% {
+    transform: rotate(360deg);
+    @apply bg-zinc-50;
+  }
+}

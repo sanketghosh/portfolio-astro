@@ -1,17 +1,39 @@
 ---
 import MainLayout from "../layouts/main-layout.astro";
 import "../styles/index.css";
+
+/* const paras = [
+  {
+    para: `I'm a developer and undergrad student from India, deeply passionate about
+      building softwares. I'm always pushing myself to explore new horizons and
+      push the limits of what's possible in this ever-evolving field.`,
+  },
+  {
+    para: `I'm a developer and undergrad student from India, deeply passionate about
+      building softwares. I'm always pushing myself to explore new horizons and
+      push the limits of what's possible in this ever-evolving field.`,
+  },
+]; */
 ---
 
 <MainLayout description="" title="Home">
   <div class="space-y-5 py-7">
-    <div class="h-6 w-6 rounded-md bg-orange-600"></div>
-    <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium">sanketghosh</h2>
+    <div class="square"></div>
+    <h2 class="text-2xl font-medium md:text-3xl lg:text-4xl">sanketghosh</h2>
     <p class="text-sm md:text-base">
-      I'm a developer and undergrad student from India, deeply passionate about building softwares. I'm always pushing myself to explore new
-      horizons and push the limits of what's possible in this ever-evolving
-      field.
+      I'm a developer and undergrad student from India, deeply passionate about
+      building softwares. I'm always pushing myself to explore new horizons and
+      push the limits of what's possible in this ever-evolving field.
     </p>
-    <p class="text-sm md:text-base text-zinc-400">I thoroughly enjoy working with TypeScript and JavaScript, finding immense satisfaction in crafting solutions with these languages. However, when I'm not immersed in them, I often find myself exploring Rust or diving into various other realms of computer science.</p>
+    <p class="text-sm text-zinc-400 md:text-base">
+      I thoroughly enjoy working with TypeScript and JavaScript, finding immense
+      satisfaction in crafting solutions with these languages. However, when I'm
+      not immersed in them, I often find myself exploring Rust or diving into
+      various other realms of computer science.
+    </p>
+    <div class="space-x-4">
+      <a href="">GitHub</a>
+      <a href="">X (Twitter)</a>
+    </div>
   </div>
 </MainLayout>

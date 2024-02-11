@@ -1,0 +1,57 @@
+---
+const fake_project_data = [
+  {
+    date: "March, 2018",
+    project: "Chatify: Real-time messaging app",
+    linkName: "Blog",
+    link: "/blog/:id",
+  },
+  {
+    date: "April, 2019",
+    project: "EcoTrack: Environmental impact tracker",
+    linkName: "Site",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    date: "May, 2020",
+    project: "HealthPal: Personal health management tool",
+    linkName: "Playstore",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    date: "June, 2021",
+    project: "EduQuest: Educational resource platform",
+    linkName: "GitHub",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    date: "July, 2022",
+    project: "SafeRide: Ride-sharing safety application",
+    linkName: "Blog",
+    link: "/blog/:id",
+  },
+];
+---
+
+<table class="table w-full">
+  <thead class="">
+    <tr class="text-zinc-500">
+      <th class="pb-1 text-left capitalize">date</th>
+      <th class="px-5 pb-1 text-left capitalize">project</th>
+      <th class="pb-1 text-right capitalize">type</th>
+    </tr>
+  </thead>
+  <tbody class="text-[15px]">
+    {
+      fake_project_data.map((i) => (
+        <tr class="cursor-pointer border-b border-zinc-900 text-sm hover:bg-zinc-900">
+          <td class="tracking-tight">{i.date}</td>
+          <td class="px-5 py-3">{i.project}</td>
+          <td class="text-right underline underline-offset-2">
+            <a href={i.link}>{i.linkName}</a>
+          </td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

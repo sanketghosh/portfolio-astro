@@ -1,0 +1,43 @@
+---
+const fake_project_data = [
+  {
+    project: "Chatify",
+    desc: "Real-time messaging app, with group chat, 1v1 chat and other features",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    project: "EcoTrack",
+    desc: "An environmental impact tracker, very easy to use",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    project: "HealthPal",
+    desc: "Your personal health care buddy.",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    project: "EduQuest",
+    desc: "An educational resource platform",
+    link: "https://github.com/sanketghosh",
+  },
+];
+---
+
+<section>
+  <div class="space-y-5">
+    {
+      fake_project_data.map((item) => (
+        <div class="border-b border-zinc-800 pb-2">
+          <a
+            href={item.link}
+            target="_blank"
+            class="cursor-pointer font-medium transition-all hover:text-zinc-300 hover:underline hover:underline-offset-4"
+          >
+            {item.project}
+          </a>
+          <p class="leading-tight text-zinc-500">{item.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,63 +1,57 @@
 ---
+import BlogCard from "../components/blog-card.astro";
 import MainLayout from "../layouts/main-layout.astro";
-import ProjectTable from "../components/project-table.astro";
-import BlogTable from "../components/blog-table.astro";
-import "../styles/index.css";
 
-const paras = [
-  {
-    elem: `I'm a developer and undergrad student from India, deeply passionate
-        about building softwares. I'm always pushing myself to explore new
-        horizons and push the limits of what's possible in this ever-evolving
-        field.`,
-  },
-  {
-    elem: `
-        I'm a developer and undergrad student from India, deeply passionate
-        about building softwares. I'm always pushing myself to explore new
-        horizons and push the limits of what's possible in this ever-evolving
-        field.
-      `,
-  },
-];
+import ProjectSection from "../components/project-section.astro";
 ---
 
-<MainLayout description="" title="Home">
-  <main class="space-y-8 py-5">
-    <div class="square"></div>
-    <h2 class="text-2xl font-medium md:text-3xl lg:text-4xl">sanketghosh</h2>
-    <div class="space-y-3">
-      {
-        paras.map((i) => (
-          <p class="text-sm even:text-zinc-400 md:text-base">{i.elem}</p>
-        ))
-      }
-    </div>
-    <div class="flex items-center space-x-4 text-sm md:text-base">
-      <a href="https://github.com/sanketghosh">GitHub</a>
-      <a href="https://x.com/sanketgsh">X (Twitter)</a>
+<MainLayout description="" title="">
+  <main class="space-y-7 py-5">
+    <div class="text-base">
+      <h1 class="text-xl font-bold">sanketghosh</h1>
+      <p class="font-medium text-zinc-500">learner. developer. dreamer</p>
     </div>
 
     <div class="space-y-3">
-      <h1 class="text-lg font-medium lg:text-xl">Projects</h1>
-      <ProjectTable />
-      <!-- <h2 class="text-xs underline-offset-4 hover:underline">
-        <a href="https://github.com/sanketghosh" class="capitalize"
-          >more projects on my GitHub</a
-        >
-      </ProjectTable> -->
+      <p class="">
+        I'm from India and have a passion for crafting software, particularly in
+        web technologies. Recently, I've been exploring the world of AI.
+      </p>
+    </div>
+    <div class="flex items-center space-x-3 text-sm md:text-base">
+      <a
+        href="https://github.com/sanketghosh"
+        class="rounded-full bg-zinc-800 p-1.5 shadow-md transition-all hover:bg-opacity-65"
+      >
+        <img src="./github.svg" alt="github icon" />
+      </a>
+      <a
+        href="https://x.com/sanketgsh"
+        class="rounded-full bg-zinc-800 p-1.5 shadow-md transition-all hover:bg-opacity-65"
+      >
+        <img src="./twitter.svg" alt="twitter icon" class="" />
+      </a>
     </div>
 
-    <div class="space-y-3">
-      <h1 class="text-lg font-medium lg:text-xl">Latest Wrtings</h1>
-      <BlogTable />
-      <h2 class="text-xs underline-offset-4 hover:underline">
-        <a
-          href="/articles"
-          class="text-sm capitalize underline underline-offset-4"
-          >my other articles</a
-        >
+    <div class="space-y-5">
+      <h1 class="font-semibold underline underline-offset-4">Projects</h1>
+      <ProjectSection />
+    </div>
+
+    <div class="space-y-5">
+      <h1 class="font-semibold underline underline-offset-4">Latest Wrtings</h1>
+      <BlogCard />
+      <h2
+        class="mt-2 w-fit text-sm font-medium capitalize underline underline-offset-4 hover:text-zinc-300"
+      >
+        <a href="/blog" class="">read others</a>
       </h2>
     </div>
   </main>
 </MainLayout>
+
+<!-- 
+        class="
+
+
+ -->

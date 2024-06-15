@@ -1,7 +1,45 @@
 ---
 import MainLayout from "../../layouts/main-layout.astro";
+
+const tags = [
+  "AI",
+  "Fullstack",
+  "GPT",
+  "Frontend",
+  "ML",
+  "Backend",
+  "PyTorch",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "LLM",
+];
 ---
 
 <MainLayout title="Blog" description="A place for my writings and thoughts">
-  <h1 class="font-medium underline underline-offset-4">Check my writings</h1>
+  <div class="w-fit rounded-md bg-zinc-800 px-2 py-1">
+    <a href="/" class="flex items-center gap-1">
+      <img src="./home.svg" alt="Home Icon" class="size-4" />
+      <p class="text-sm font-semibold">Home</p>
+    </a>
+  </div>
+
+  <div class="space-y-3 py-5">
+    <h1 class="text-2xl">Find all my writings here.</h1>
+    <input
+      type="text"
+      placeholder="Search writings..."
+      class="w-full rounded-md border border-zinc-900 bg-zinc-800 px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-zinc-700 md:text-base"
+    />
+
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map((i) => (
+          <span class="cursor-pointer rounded-md bg-zinc-800 px-2 py-1.5 text-xs font-medium">
+            {i}
+          </span>
+        ))
+      }
+    </div>
+  </div>
 </MainLayout>

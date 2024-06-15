@@ -7,31 +7,49 @@ import ProjectSection from "../components/project-section.astro";
 
 <MainLayout description="" title="">
   <main class="space-y-7 py-5">
-    <div class="text-base">
-      <h1 class="text-xl font-bold">sanketghosh</h1>
-      <p class="font-medium text-zinc-500">learner. developer. dreamer</p>
+    <div class="rounded-md bg-zinc-800 p-3">
+      <h1 class="text-lg font-bold md:text-xl">sanketghosh</h1>
+      <p class="text-[15px] font-medium text-zinc-500 md:text-base">
+        learner. developer. dreamer
+      </p>
     </div>
 
     <div class="space-y-3">
       <p class="">
-        I'm from India and have a passion for crafting software, particularly in
-        web technologies. Recently, I've been exploring the world of AI.
+        Primarily a web developer. Recently, I've been exploring the world of
+        AI.
       </p>
     </div>
-    <div class="flex items-center space-x-3 text-sm md:text-base">
+    <div class="space-x-3 text-sm font-medium">
       <a
         href="https://github.com/sanketghosh"
-        class="rounded-full bg-zinc-800 p-1.5 shadow-md transition-all hover:bg-opacity-65"
+        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80">GitHub</a
       >
-        <img src="./github.svg" alt="github icon" />
+      <a
+        href="https://x.com/svnket"
+        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80"
+        >X (or Twitter)</a
+      >
+      <a
+        href="/blog"
+        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80">Blog</a
+      >
+    </div>
+
+    <!--     <div class="flex items-center space-x-2 text-sm md:text-base">
+      <a
+        href="https://github.com/sanketghosh"
+        class="rounded-full bg-zinc-800 p-2 shadow-md transition-all hover:bg-opacity-65"
+      >
+        <img src="./github.svg" alt="github icon" class="size-6" />
       </a>
       <a
-        href="https://x.com/sanketgsh"
-        class="rounded-full bg-zinc-800 p-1.5 shadow-md transition-all hover:bg-opacity-65"
+        href="https://x.com/svnket"
+        class="rounded-full bg-zinc-800 p-2 shadow-md transition-all hover:bg-opacity-65"
       >
-        <img src="./twitter.svg" alt="twitter icon" class="" />
+        <img src="./twitter.svg" alt="twitter icon" class="size-6" />
       </a>
-    </div>
+    </div> -->
 
     <div class="space-y-5">
       <h1 class="font-semibold underline underline-offset-4">Projects</h1>
@@ -41,17 +59,6 @@ import ProjectSection from "../components/project-section.astro";
     <div class="space-y-5">
       <h1 class="font-semibold underline underline-offset-4">Latest Wrtings</h1>
       <BlogCard />
-      <h2
-        class="mt-2 w-fit text-sm font-medium capitalize underline underline-offset-4 hover:text-zinc-300"
-      >
-        <a href="/blog" class="">read others</a>
-      </h2>
     </div>
   </main>
 </MainLayout>
-
-<!-- 
-        class="
-
-
- -->

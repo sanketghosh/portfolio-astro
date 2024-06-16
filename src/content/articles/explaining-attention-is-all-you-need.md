@@ -1,13 +1,23 @@
 ---
 title: "Explaining attention is all you need."
 publishDate: 2024-02-11
-author: "John Doe"
+author: "sanketghosh"
 # image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHx8MA%3D%3D"
 tags: ["AI", "ML", "DL", "GPT", "Python"]
 slug: explaining-attention-is-all-you-need
 ---
 
 In the ever-evolving landscape of technology, developers require laptops that can keep up with their demands for coding, debugging, and testing. As we step into 2024, the search for the perfect laptop for developers continues. Let's explore some of the top contenders for the title of "Best Laptops for Developers" this year.
+
+![Screenshot from 2024-06-16 23-35-26](/assets/img1.png)
+
+```js
+const month = months[inputDate.getUTCMonth()];
+const day = inputDate.getUTCDate();
+const year = inputDate.getUTCFullYear();
+
+return `${month} ${day}, ${year}`;
+```
 
 ## 1. MacBook Pro (M2X Chip)
 
@@ -38,3 +48,5 @@ If you're a developer who dabbles in game development or graphics-intensive task
 The HP Spectre x360 combines style and substance. It's a 2-in-1 laptop with a sleek design, a vivid touchscreen, and robust internals. It's perfect for developers who need flexibility in their work setup. With its long battery life and comfortable keyboard, you can code on the go or in tablet mode.
 
 In conclusion, the best laptop for developers in 2024 depends on your specific needs and preferences. Whether you prioritize power, portability, or a Linux-based environment, there's a laptop on this list to cater to your requirements. Take the time to assess your needs and budget, and you'll find the perfect coding companion to kickstart your productive year as a developer.
+
+

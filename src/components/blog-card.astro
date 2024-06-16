@@ -16,8 +16,8 @@ const { slug, title, date, className } = Astro.props as BlogCard;
     {formatDate(date)}
   </p>
   <a
-    class={`cursor-pointer font-medium leading-tight transition-all hover:text-zinc-300 hover:underline hover:underline-offset-4 lg:text-lg ${className}`}
-    href={"/article/" + slug}
+    class={`cursor-pointer font-semibold leading-tight transition-all hover:text-zinc-400 md:text-lg`}
+    href={"/blog/" + slug}
   >
     {title}
   </a>

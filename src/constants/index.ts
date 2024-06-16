@@ -18,3 +18,26 @@ export const BlogTags = [
   "LLM",
   "DL",
 ];
+
+export const page_links = [
+  {
+    label: "GitHub",
+    link: "https://github.com/sanketghosh",
+    target: "_blank",
+  },
+  {
+    label: "X(Twitter)",
+    link: "https://x.com/svnket",
+    target: "_blank",
+  },
+  {
+    label: "Blog",
+    link: "/blog",
+    target: "_self",
+  },
+  /*   {
+    label: "mail",
+    link: "mailto:code.sanket13@gmail.com",
+    target: "_blank",
+  }, */
+];

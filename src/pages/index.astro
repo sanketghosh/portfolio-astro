@@ -1,10 +1,15 @@
 ---
+// components
 import MainLayout from "../layouts/main-layout.astro";
 import ProjectSection from "../components/project-section.astro";
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 import BlogCard from "../components/blog-card.astro";
 
+// packages
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import { page_links } from "../constants";
+
+// ops
 const allBlogArticles: CollectionEntry<"articles">[] = (
   await getCollection("articles")
 )
@@ -13,29 +18,6 @@ const allBlogArticles: CollectionEntry<"articles">[] = (
       b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
   )
   .slice(0, 3);
-
-const page_links = [
-  {
-    label: "github",
-    link: "https://github.com/sanketghosh",
-    target: "_blank",
-  },
-  {
-    label: "x(twitter)",
-    link: "https://x.com/svnket",
-    target: "_blank",
-  },
-  {
-    label: "blog",
-    link: "/blog",
-    target: "_self",
-  },
-  /*   {
-    label: "mail",
-    link: "mailto:code.sanket13@gmail.com",
-    target: "_blank",
-  }, */
-];
 ---
 
 <MainLayout description="" title="">
@@ -54,7 +36,7 @@ const page_links = [
             <a
               target={item.target}
               href={item.link}
-              class="text-[15px] font-extrabold text-violet-500 md:text-base"
+              class="text-sm font-semibold text-indigo-500 hover:text-indigo-600 md:text-base"
             >
               {item.label}
             </a>
@@ -73,7 +55,7 @@ const page_links = [
 
     <div class="">
       <h1
-        class="mb-4 rounded-md border-2 border-zinc-500/20 px-3 py-1.5 text-sm font-extrabold uppercase"
+        class="mb-4 rounded-md border-2 border-zinc-800 px-3 py-1.5 text-sm font-extrabold uppercase"
       >
         projects
       </h1>
@@ -102,10 +84,9 @@ const page_links = [
       </section>
     </div>
 
-    <div>
-      <h1 class="w-fit rounded-md bg-zinc-800 px-3 py-1 text-sm font-semibold">
-        Mail: code.sanket13@gmail.com
-      </h1>
+    <div class="flex items-center gap-1 py-5">
+      <img src="./mail.svg" alt="" class="size-4 stroke-2" />
+      <p class="text-sm font-medium">code.sanket13@gmail.com</p>
     </div>
   </main>
 </MainLayout>

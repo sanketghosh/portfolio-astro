@@ -3,3 +3,18 @@ export const SITE_META_DATA = {
   description:
     "I am a developer, I love working with web technologies and explore new tech stuffs.",
 };
+
+export const BlogTags = [
+  "AI",
+  "Fullstack",
+  "GPT",
+  "Frontend",
+  "ML",
+  "Backend",
+  "PyTorch",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "LLM",
+  "DL",
+];

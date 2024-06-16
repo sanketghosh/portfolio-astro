@@ -1,8 +1,41 @@
 ---
-import BlogCard from "../components/blog-card.astro";
 import MainLayout from "../layouts/main-layout.astro";
-
 import ProjectSection from "../components/project-section.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import BlogCard from "../components/blog-card.astro";
+
+const allBlogArticles: CollectionEntry<"articles">[] = (
+  await getCollection("articles")
+)
+  .sort(
+    (a: CollectionEntry<"articles">, b: CollectionEntry<"articles">) =>
+      b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+  )
+  .slice(0, 3);
+
+const page_links = [
+  {
+    label: "github",
+    link: "https://github.com/sanketghosh",
+    target: "_blank",
+  },
+  {
+    label: "x(twitter)",
+    link: "https://x.com/svnket",
+    target: "_blank",
+  },
+  {
+    label: "blog",
+    link: "/blog",
+    target: "_self",
+  },
+  /*   {
+    label: "mail",
+    link: "mailto:code.sanket13@gmail.com",
+    target: "_blank",
+  }, */
+];
 ---
 
 <MainLayout description="" title="">
@@ -14,51 +47,65 @@ import ProjectSection from "../components/project-section.astro";
       </p>
     </div>
 
-    <div class="space-y-3">
-      <p class="">
-        Primarily a web developer. Recently, I've been exploring the world of
-        AI.
-      </p>
-    </div>
-    <div class="space-x-3 text-sm font-medium">
-      <a
-        href="https://github.com/sanketghosh"
-        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80">GitHub</a
-      >
-      <a
-        href="https://x.com/svnket"
-        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80"
-        >X (or Twitter)</a
-      >
-      <a
-        href="/blog"
-        class="rounded-md bg-zinc-800 px-2 py-1.5 hover:bg-opacity-80">Blog</a
-      >
+    <div class="flex items-center gap-2 font-medium">
+      {
+        page_links.map((item, idx) => (
+          <div>
+            <a
+              target={item.target}
+              href={item.link}
+              class="text-[15px] font-extrabold text-violet-500 md:text-base"
+            >
+              {item.label}
+            </a>
+
+            {idx !== page_links.length - 1 && (
+              <span class="font-extrabold">/</span>
+            )}
+          </div>
+        ))
+      }
     </div>
 
-    <!--     <div class="flex items-center space-x-2 text-sm md:text-base">
-      <a
-        href="https://github.com/sanketghosh"
-        class="rounded-full bg-zinc-800 p-2 shadow-md transition-all hover:bg-opacity-65"
-      >
-        <img src="./github.svg" alt="github icon" class="size-6" />
-      </a>
-      <a
-        href="https://x.com/svnket"
-        class="rounded-full bg-zinc-800 p-2 shadow-md transition-all hover:bg-opacity-65"
-      >
-        <img src="./twitter.svg" alt="twitter icon" class="size-6" />
-      </a>
-    </div> -->
+    <p class="font-medium">
+      Primarily a web developer. Recently, I've been exploring the world of AI.
+    </p>
 
-    <div class="space-y-5">
-      <h1 class="font-semibold underline underline-offset-4">Projects</h1>
+    <div class="">
+      <h1
+        class="mb-4 rounded-md border-2 border-zinc-500/20 px-3 py-1.5 text-sm font-extrabold uppercase"
+      >
+        projects
+      </h1>
       <ProjectSection />
     </div>
 
-    <div class="space-y-5">
-      <h1 class="font-semibold underline underline-offset-4">Latest Wrtings</h1>
-      <BlogCard />
+    <div class="">
+      <h1
+        class="mb-4 rounded-md border-2 border-zinc-800 px-3 py-1.5 text-sm font-extrabold uppercase"
+      >
+        Latest Wrtings
+      </h1>
+      <section class="w-full">
+        <div class="space-y-3">
+          {
+            allBlogArticles.map((blog) => (
+              <BlogCard
+                title={blog.data.title}
+                slug={blog.slug}
+                date={blog.data.publishDate}
+                className="lg:text-base"
+              />
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
+    <div>
+      <h1 class="w-fit rounded-md bg-zinc-800 px-3 py-1 text-sm font-semibold">
+        Mail: code.sanket13@gmail.com
+      </h1>
     </div>
   </main>
 </MainLayout>

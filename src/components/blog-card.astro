@@ -1,69 +1,24 @@
 ---
-const fake_blog_data = [
-  {
-    date: "March 20, 2018",
-    blogTitle: "Exploring the Depths of Science and Technology",
-    views: 1200,
-  },
-  {
-    date: "April 20, 2019",
-    blogTitle: "Unlocking the Mysteries of Human Health and Wellness",
-    views: 800,
-  },
-  {
-    date: "May 20, 2020",
-    blogTitle: "The Ever-Evolving World of Technological Innovations",
-    views: 1500,
-  },
-  /* {
-    date: "June 20, 2021",
-    blogTitle: "Delving into the Rich Tapestry of Human History",
-    views: 600,
-  },
-  {
-    date: "July 20, 2022",
-    blogTitle: "Immersing in the Beauty and Wonder of Nature",
-    views: 2000,
-  }, 
-  {
-    date: "August, 2023",
-    blogTitle: "Celebrating Creativity and Artistic Expression",
-    views: 1000,
-  },
-  {
-    date: "September, 2024",
-    blogTitle: "Embracing Healthy Living: Tips and Insights",
-    views: 900,
-  },
-    {
-    date: "October, 2025",
-    blogTitle: "Journeying Through the Complexities of the Human Mind",
-    views: 1700,
-  },
-  {
-    date: "November, 2026",
-    blogTitle: "Embarking on Adventures: Travel Tales from Around the World",
-    views: 1400,
-  },
-  {
-    date: "December, 2027",
-    blogTitle: "Discovering the Melodies of Life: Musical Explorations",
-    views: 1100,
-  }, */
-];
+import { formatDate } from "../utils/date-format";
+
+interface BlogCard {
+  slug?: string;
+  title?: string;
+  date: Date;
+  className?: string;
+}
+
+const { slug, title, date, className } = Astro.props as BlogCard;
 ---
 
-<section class="w-full">
-  <div class="space-y-5">
-    {
-      fake_blog_data.map((i) => (
-        <div class="border-b border-zinc-800 pb-2">
-          <p class="text-zinc-500">{i.date}</p>
-          <a class="cursor-pointer font-medium leading-tight transition-all hover:text-zinc-300 hover:underline hover:underline-offset-4">
-            {i.blogTitle}
-          </a>
-        </div>
-      ))
-    }
-  </div>
-</section>
+<div class="border-b border-zinc-800 pb-2">
+  <p class="text-sm font-medium text-zinc-500">
+    {formatDate(date)}
+  </p>
+  <a
+    class={`cursor-pointer font-medium leading-tight transition-all hover:text-zinc-300 hover:underline hover:underline-offset-4 lg:text-lg ${className}`}
+    href={"/article/" + slug}
+  >
+    {title}
+  </a>
+</div>

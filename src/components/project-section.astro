@@ -15,16 +15,11 @@ const fake_project_data = [
     desc: "Your personal health care buddy.",
     link: "https://github.com/sanketghosh",
   },
-  {
-    project: "EduQuest",
-    desc: "An educational resource platform",
-    link: "https://github.com/sanketghosh",
-  },
 ];
 ---
 
 <section>
-  <div class="space-y-5">
+  <div class="space-y-3">
     {
       fake_project_data.map((item) => (
         <div class="border-b border-zinc-800 pb-2">
@@ -35,7 +30,7 @@ const fake_project_data = [
           >
             {item.project}
           </a>
-          <p class="leading-tight text-zinc-500">{item.desc}</p>
+          <p class="text-sm font-medium text-zinc-500">{item.desc}</p>
         </div>
       ))
     }

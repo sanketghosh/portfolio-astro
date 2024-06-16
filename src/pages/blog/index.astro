@@ -1,19 +1,17 @@
 ---
 import MainLayout from "../../layouts/main-layout.astro";
 
-const tags = [
-  "AI",
-  "Fullstack",
-  "GPT",
-  "Frontend",
-  "ML",
-  "Backend",
-  "PyTorch",
-  "Python",
-  "JavaScript",
-  "TypeScript",
-  "LLM",
-];
+import { BlogTags } from "../../constants";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import BlogCard from "../../components/blog-card.astro";
+
+const allBlogArticles: CollectionEntry<"articles">[] = (
+  await getCollection("articles")
+).sort(
+  (a: CollectionEntry<"articles">, b: CollectionEntry<"articles">) =>
+    b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
 ---
 
 <MainLayout title="Blog" description="A place for my writings and thoughts">
@@ -25,7 +23,7 @@ const tags = [
   </div>
 
   <div class="space-y-3 py-5">
-    <h1 class="text-2xl">Find all my writings here.</h1>
+    <h1 class="text-2xl font-bold">Find all my writings here.</h1>
     <input
       type="text"
       placeholder="Search writings..."
@@ -34,12 +32,24 @@ const tags = [
 
     <div class="flex flex-wrap gap-2">
       {
-        tags.map((i) => (
-          <span class="cursor-pointer rounded-md bg-zinc-800 px-2 py-1.5 text-xs font-medium">
+        BlogTags.map((i) => (
+          <span class="cursor-pointer rounded-md bg-zinc-800 px-2 py-1.5 text-xs font-medium hover:bg-opacity-80">
             {i}
           </span>
         ))
       }
     </div>
+  </div>
+
+  <div class="space-y-3 py-5">
+    {
+      allBlogArticles.map((blog) => (
+        <BlogCard
+          title={blog.data.title}
+          slug={blog.slug}
+          date={blog.data.publishDate}
+        />
+      ))
+    }
   </div>
 </MainLayout>

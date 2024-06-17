@@ -3,6 +3,8 @@
 import MainLayout from "../layouts/main-layout.astro";
 import ProjectSection from "../components/project-section.astro";
 import BlogCard from "../components/blog-card.astro";
+import Link from "../components/link.astro";
+
 
 // packages
 import type { CollectionEntry } from "astro:content";
@@ -33,13 +35,7 @@ const allBlogArticles: CollectionEntry<"articles">[] = (
       {
         page_links.map((item, idx) => (
           <div>
-            <a
-              target={item.target}
-              href={item.link}
-              class="text-sm font-semibold text-indigo-500 hover:text-indigo-600 md:text-base"
-            >
-              {item.label}
-            </a>
+            <Link href={item.link} target={item.target} label={item.label} />
 
             {idx !== page_links.length - 1 && (
               <span class="font-extrabold">/</span>

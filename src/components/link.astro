@@ -1,0 +1,13 @@
+---
+interface LinkProps {
+    target: string
+    href: string
+    label: string
+}
+
+const { target="_self", label, href } = Astro.props as LinkProps
+---
+
+
+<a href={href} target={target} class="text-sm font-semibold hover:text-zinc-300 md:text-[15px] underline underline-offset-4">{label}</a>
+

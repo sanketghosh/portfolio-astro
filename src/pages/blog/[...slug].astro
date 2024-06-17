@@ -1,6 +1,8 @@
 ---
 // components
 import MainLayout from "../../layouts/main-layout.astro";
+import Link from "../../components/link.astro";
+
 
 //packages
 import { getEntry } from "astro:content";
@@ -26,23 +28,13 @@ const { Content } = await entry!.render();
 
 <MainLayout title={entry?.data.title} description={entry?.data.title}>
   <div class="flex items-center gap-3 pb-3">
-    <a
-      href="/"
-      class="text-sm font-semibold text-indigo-500 hover:text-indigo-600 md:text-base"
-      >Home</a
-    >
-
-    <a
-      href="/blog"
-      class="text-sm font-semibold text-indigo-500 hover:text-indigo-600 md:text-base"
-      >Blog</a
-    >
+    <Link href={"/"} target={"_self"} label={"Home"}/>
+    <Link href={"/blog"} target={"_self"} label={"Blog"}/>
   </div>
 
   <div class="space-y-4 py-5">
-    <h1 class="text-2xl font-bold leading-tight md:text-3xl">
-      {entry?.data.title} Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-      Quibusdam, expedita!
+    <h1 class="text-2xl font-bold font-serif leading-tight md:text-3xl">
+      {entry?.data.title}
     </h1>
     <div class="flex w-full flex-col rounded-md bg-zinc-800 p-2">
       <p class="text-lg font-semibold">
@@ -71,6 +63,10 @@ const { Content } = await entry!.render();
   </div>
   <div class="py-5">
     <Content />
+  </div>
+  <div class="py-6 text-sm font-medium">
+    
+    <h1>Follow me on <a href=""><b>GitHub</b></a> or <a href=""><b>X(Twitter)</b></a></h1>
   </div>
 </MainLayout>
 

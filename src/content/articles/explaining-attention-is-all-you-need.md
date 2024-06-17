@@ -1,9 +1,9 @@
 ---
-title: "Explaining attention is all you need."
+title: "Explaining attention is all you need. How it became so much talked about in modern machine learning world."
 publishDate: 2024-02-11
 author: "sanketghosh"
 # image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHx8MA%3D%3D"
-tags: ["AI", "ML", "DL", "GPT", "Python"]
+tags: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "GPT", "Python"]
 slug: explaining-attention-is-all-you-need
 ---
 

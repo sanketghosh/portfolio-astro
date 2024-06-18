@@ -19,25 +19,44 @@ export const BlogTags = [
   "DL",
 ];
 
-export const page_links = [
+export const SOCIAL_LINKS = [
   {
     label: "GitHub",
+    img: "./github.svg",
     link: "https://github.com/sanketghosh",
     target: "_blank",
   },
   {
     label: "X(Twitter)",
+    img: "./x.svg",
     link: "https://x.com/svnket",
     target: "_blank",
   },
   {
-    label: "Blog",
-    link: "/blog",
-    target: "_self",
-  },
-  /*   {
-    label: "mail",
+    label: "Mail",
+    img: "./mail.svg",
     link: "mailto:code.sanket13@gmail.com",
     target: "_blank",
-  }, */
+  },
+  {
+    label: "Linkedin",
+    img: "./linkedin.svg",
+    link: "https://in.linkedin.com/in/sanketghosh",
+    target: "_blank",
+  },
+];
+
+export const NAV_LINKS = [
+  {
+    href: "/",
+    label: "about",
+  },
+  {
+    href: "/blog",
+    label: "blog",
+  },
+  {
+    href: "/contact",
+    label: "contact",
+  },
 ];

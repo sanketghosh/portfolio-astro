@@ -5,11 +5,10 @@ import ProjectSection from "../components/project-section.astro";
 import BlogCard from "../components/blog-card.astro";
 import Link from "../components/link.astro";
 
-
 // packages
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import { page_links } from "../constants";
+import Hero from "../components/hero.astro";
 
 // ops
 const allBlogArticles: CollectionEntry<"articles">[] = (
@@ -24,46 +23,23 @@ const allBlogArticles: CollectionEntry<"articles">[] = (
 
 <MainLayout description="" title="">
   <main class="space-y-7 py-5">
-    <div class="rounded-md bg-zinc-800 p-3">
-      <h1 class="text-lg font-bold md:text-xl">sanketghosh</h1>
-      <p class="text-[15px] font-medium text-zinc-500 md:text-base">
-        learner. developer. dreamer
+    <div>
+      <h2 class="mb-4 font-medium underline underline-offset-4">Whoami</h2>
+      <p class="font-marcellus text-lg lg:text-xl">
+        Primarily a web developer. Recently, I've been exploring the world of
+        AI.
       </p>
     </div>
 
-    <div class="flex items-center gap-2 font-medium">
-      {
-        page_links.map((item, idx) => (
-          <div>
-            <Link href={item.link} target={item.target} label={item.label} />
-
-            {idx !== page_links.length - 1 && (
-              <span class="font-extrabold">/</span>
-            )}
-          </div>
-        ))
-      }
-    </div>
-
-    <p class="font-medium">
-      Primarily a web developer. Recently, I've been exploring the world of AI.
-    </p>
-
     <div class="">
-      <h1
-        class="mb-4 rounded-md border-2 border-zinc-800 px-3 py-1.5 text-sm font-extrabold uppercase"
-      >
-        projects
-      </h1>
+      <h2 class="mb-4 font-medium underline underline-offset-4">Projects</h2>
       <ProjectSection />
     </div>
 
-    <div class="">
-      <h1
-        class="mb-4 rounded-md border-2 border-zinc-800 px-3 py-1.5 text-sm font-extrabold uppercase"
-      >
+    <div>
+      <h2 class="mb-4 font-medium underline underline-offset-4">
         Latest Wrtings
-      </h1>
+      </h2>
       <section class="w-full">
         <div class="space-y-3">
           {
@@ -78,11 +54,6 @@ const allBlogArticles: CollectionEntry<"articles">[] = (
           }
         </div>
       </section>
-    </div>
-
-    <div class="flex items-center gap-1 py-5">
-      <img src="./mail.svg" alt="" class="size-4 stroke-2" />
-      <p class="text-sm font-medium">code.sanket13@gmail.com</p>
     </div>
   </main>
 </MainLayout>

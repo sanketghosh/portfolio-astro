@@ -1,0 +1,20 @@
+---
+type Target = "_blank" | "_self";
+
+interface LinkCardProps {
+  link: string;
+  target?: Target;
+}
+
+const { link, target = "_self" } = Astro.props as LinkCardProps;
+---
+
+<div>
+  <a href={link} target={target}>
+    <div
+      class="rounded-md border border-zinc-800/40 bg-zinc-900/20 p-3 transition-all hover:bg-zinc-900/35"
+    >
+      <slot />
+    </div>
+  </a>
+</div>

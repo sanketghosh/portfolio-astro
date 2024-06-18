@@ -1,0 +1,39 @@
+---
+import { SOCIAL_LINKS, NAV_LINKS } from "../constants";
+
+const path = Astro.url.pathname;
+---
+
+<section class="space-y-6">
+  <div class="">
+    <h1 class="font-marcellus text-2xl font-semibold md:text-4xl lg:text-4xl">
+      Sanket Ghosh
+    </h1>
+    <p class="text-[15px] font-medium capitalize text-zinc-500 md:text-base">
+      learner. developer. dreamer
+    </p>
+  </div>
+  <div class="flex items-center space-x-5">
+    {
+      SOCIAL_LINKS.map((link) => (
+        <a href={link.link} class="">
+          <img src={link.img} alt={link.label} class="size-5" />
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="flex items-center space-x-3 pt-5">
+    {
+      NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class={`rounded-md border-zinc-800/40 p-3 px-3 py-1.5 text-[13px] font-medium capitalize transition-all  ${path === link.href ? "bg-white text-black" : "bg-zinc-900/50"}`}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+  <div class="h-0.5 w-full bg-zinc-900"></div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import { formatDate } from "../utils/date-format";
+import LinkCard from "./link-card.astro";
 
 interface BlogCard {
   slug?: string;
@@ -11,14 +12,13 @@ interface BlogCard {
 const { slug, title, date, className } = Astro.props as BlogCard;
 ---
 
-<div class="border-b border-zinc-800 pb-2">
-  <p class="text-sm font-medium text-zinc-500">
+<LinkCard link={"/blog/" + slug}>
+  <p class="text-zinc-500">
     {formatDate(date)}
   </p>
-  <a
-    class={`cursor-pointer font-semibold leading-tight transition-all hover:text-zinc-400 md:text-lg`}
-    href={"/blog/" + slug}
+  <p
+    class="font-marcellus cursor-pointer text-lg font-semibold leading-tight lg:text-xl"
   >
     {title}
-  </a>
-</div>
+  </p>
+</LinkCard>

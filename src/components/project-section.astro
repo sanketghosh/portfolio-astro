@@ -1,37 +1,40 @@
 ---
+import LinkCard from "./link-card.astro";
+
 const fake_project_data = [
   {
     project: "Chatify",
-    desc: "Real-time messaging app, with group chat, 1v1 chat and other features",
+    desc: "Modern real-time messaging app.",
     link: "https://github.com/sanketghosh",
   },
   {
     project: "EcoTrack",
-    desc: "An environmental impact tracker, very easy to use",
+    desc: "Environmental impact tracker.",
     link: "https://github.com/sanketghosh",
   },
   {
     project: "HealthPal",
-    desc: "Your personal health care buddy.",
+    desc: "Personal health care buddy.",
+    link: "https://github.com/sanketghosh",
+  },
+  {
+    project: "BudgetWiz",
+    desc: "Personal budget tracker.",
     link: "https://github.com/sanketghosh",
   },
 ];
 ---
 
 <section>
-  <div class="space-y-3">
+  <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
     {
       fake_project_data.map((item) => (
-        <div class="border-b border-zinc-800 pb-2">
-          <a
-            href={item.link}
-            target="_blank"
-            class="cursor-pointer font-semibold transition-all hover:text-zinc-400 md:text-lg"
-          >
+        <LinkCard link={item.link} target="_blank">
+          <p class="font-marcellus cursor-pointer text-lg font-semibold lg:text-xl">
             {item.project}
-          </a>
-          <p class="text-sm font-medium text-zinc-500">{item.desc}</p>
-        </div>
+          </p>
+          <p class="text-zinc-500">{item.desc}</p>
+        </LinkCard>
       ))
     }
   </div>

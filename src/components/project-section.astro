@@ -6,34 +6,41 @@ const fake_project_data = [
     project: "Chatify",
     desc: "Modern real-time messaging app.",
     link: "https://github.com/sanketghosh",
+    isLive: true,
   },
   {
     project: "EcoTrack",
     desc: "Environmental impact tracker.",
     link: "https://github.com/sanketghosh",
+    isLive: false,
   },
   {
     project: "HealthPal",
     desc: "Personal health care buddy.",
     link: "https://github.com/sanketghosh",
+    isLive: true,
   },
   {
     project: "BudgetWiz",
     desc: "Personal budget tracker.",
     link: "https://github.com/sanketghosh",
+    isLive: false,
   },
 ];
 ---
 
 <section>
-  <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
+  <div class="space-y-3">
     {
       fake_project_data.map((item) => (
         <LinkCard link={item.link} target="_blank">
-          <p class="font-marcellus cursor-pointer text-lg font-semibold lg:text-xl">
-            {item.project}
-          </p>
-          <p class="text-zinc-500">{item.desc}</p>
+          <div class="flex items-center gap-2">
+            <p class="cursor-pointer text-base font-bold text-blue-700">
+              {item.project}
+            </p>
+            {item.isLive && <div class="size-2 rounded-full bg-emerald-600" />}
+          </div>
+          <p class="text-sm font-medium text-zinc-500">{item.desc}</p>
         </LinkCard>
       ))
     }

@@ -13,12 +13,10 @@ const { slug, title, date, className } = Astro.props as BlogCard;
 ---
 
 <LinkCard link={"/blog/" + slug}>
-  <p class="text-zinc-500">
+  <p class="text-sm font-medium text-zinc-500">
     {formatDate(date)}
   </p>
-  <p
-    class="font-marcellus cursor-pointer text-lg font-semibold leading-tight lg:text-xl"
-  >
+  <p class="cursor-pointer text-base font-bold text-blue-700">
     {title}
   </p>
 </LinkCard>

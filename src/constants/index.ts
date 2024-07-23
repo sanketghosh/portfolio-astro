@@ -27,7 +27,7 @@ export const SOCIAL_LINKS = [
     target: "_blank",
   },
   {
-    label: "X(Twitter)",
+    label: "X/Twitter",
     img: "./x.svg",
     link: "https://x.com/svnket",
     target: "_blank",
@@ -39,7 +39,7 @@ export const SOCIAL_LINKS = [
     target: "_blank",
   },
   {
-    label: "Linkedin",
+    label: "LinkedIn",
     img: "./linkedin.svg",
     link: "https://in.linkedin.com/in/sanketghosh",
     target: "_blank",
@@ -49,7 +49,7 @@ export const SOCIAL_LINKS = [
 export const NAV_LINKS = [
   {
     href: "/",
-    label: "about",
+    label: "hello",
   },
   {
     href: "/blog",

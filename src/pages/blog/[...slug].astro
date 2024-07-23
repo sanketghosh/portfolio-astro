@@ -1,16 +1,20 @@
 ---
 // components
-import MainLayout from "../../layouts/main-layout.astro";
+import SinglePostLayout from "../../layouts/single-post-layout.astro";
 import Link from "../../components/link.astro";
 
 //packages
-import { getEntry } from "astro:content";
 import { formatDate } from "../../utils/date-format";
 import { calculateReadingTime } from "../../utils/calculate-reading-time";
 import { getWordCount } from "../../utils/get-word-count";
 
-// ops
-const { slug } = Astro.params;
+/*
+
+// NOTE: operation if output:server in astro.config
+
+ import { getEntry } from "astro:content";
+
+ const { slug } = Astro.params;
 
 if (slug === undefined) {
   throw new Error("ERROR! Slug is required.");
@@ -23,33 +27,59 @@ if (entry === undefined) {
 }
 
 const { Content } = await entry!.render();
+
+*/
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export const getStaticPaths = async () => {
+  const blogPosts = await getCollection("articles");
+
+  const paths = blogPosts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    };
+  });
+  return paths;
+};
+
+type BlogPostProps = {
+  post: CollectionEntry<"articles">;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<MainLayout title={entry?.data.title} description={entry?.data.title}>
+<SinglePostLayout title={post.data.title} description={post.data.title}>
   <div class="flex items-center gap-3 pb-3">
     <Link href={"/"} target={"_self"} label={"Home"} />
     <Link href={"/blog"} target={"_self"} label={"Blog"} />
   </div>
 
-  <div class="space-y-4 py-5">
-    <h1 class="font-marcellus text-2xl font-bold leading-tight md:text-3xl">
-      {entry?.data.title}
+  <div class="space-y-4 py-5 font-inter">
+    <h1 class="text-xl font-extrabold text-blue-700 md:text-2xl">
+      {post.data.title}
     </h1>
-    <div class="flex w-full flex-col rounded-md bg-zinc-800 p-2">
+    <div class="rounded-md border bg-zinc-100/60 p-3">
       <p class="text-lg font-semibold">
-        {entry?.data.author}
+        {post.data.author}
       </p>
       <p class="text-sm font-medium capitalize text-zinc-400">
-        {calculateReadingTime(getWordCount(entry!.body))} .
-        {formatDate(entry?.data.publishDate)}
+        {calculateReadingTime(getWordCount(post.body))} .
+        {formatDate(post.data.publishDate)}
       </p>
     </div>
     <div class="flex flex-wrap gap-2">
       {
-        entry?.data.tags.map((tag: string) => (
+        post.data.tags.map((tag: string) => (
           <a
             href={"/blog/tag/" + tag}
-            class="cursor-pointer rounded-md border-2 border-zinc-800 px-2 py-1.5 text-xs font-bold uppercase hover:bg-zinc-800 hover:bg-opacity-80"
+            class="cursor-pointer rounded-md bg-zinc-100 px-2 py-1.5 text-xs font-bold uppercase transition-all hover:bg-zinc-200/60"
           >
             {tag}
           </a>
@@ -57,31 +87,30 @@ const { Content } = await entry!.render();
       }
     </div>
   </div>
-  <div class="w-full py-5">
-    <p class="h-0.5 w-full bg-zinc-800"></p>
-  </div>
-  <div class="py-5">
+
+  <div class="my-4 h-0.5 w-full bg-zinc-500"></div>
+
+  <div class="prose prose-base py-5 font-inter">
     <Content />
   </div>
   <div class="py-6 text-sm font-medium">
     <h1>
-      Follow me on <a href=""><b>GitHub</b></a> or <a href=""
-        ><b>X(Twitter)</b></a>
+      Follow me on <a
+        target="_blank"
+        href="https://github.com/sanketghosh"
+        class="hover:underline hover:underline-offset-4"><b>GitHub</b></a
+      > or
+      <a
+        target="_blank"
+        href="https://x.com/svnket"
+        class="hover:underline hover:underline-offset-4"><b>X(Twitter)</b></a
+      >
     </h1>
   </div>
-</MainLayout>
+</SinglePostLayout>
 
 <style is:global>
-  p {
-    @apply text-base;
-  }
-  h2 {
-    @apply my-3 text-lg font-bold;
-  }
-  img {
-    @apply my-3 rounded-md;
-  }
   pre {
-    @apply my-3 rounded-md p-2 font-mono font-medium;
+    @apply my-3 rounded-md p-2 font-jetbrains_mono text-lg font-semibold;
   }
 </style>

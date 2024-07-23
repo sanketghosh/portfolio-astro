@@ -5,9 +5,9 @@ export default {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        marcellus: ["Marcellus", "serif"],
+        jetbrains_mono: ["JetBrains Mono", "monospace"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

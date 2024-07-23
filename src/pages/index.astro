@@ -9,6 +9,7 @@ import Link from "../components/link.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Hero from "../components/hero.astro";
+import SectionHeader from "../components/section-header.astro";
 
 // ops
 const allBlogArticles: CollectionEntry<"articles">[] = (
@@ -24,22 +25,21 @@ const allBlogArticles: CollectionEntry<"articles">[] = (
 <MainLayout description="" title="">
   <main class="space-y-7 py-5">
     <div>
-      <h2 class="mb-4 font-medium underline underline-offset-4">Whoami</h2>
-      <p class="font-marcellus text-lg lg:text-xl">
-        Primarily a web developer. Recently, I've been exploring the world of
-        AI.
+      <SectionHeader>Whoami</SectionHeader>
+      <p class="font-medium">
+        Hi, I am Sanket, a developer from India. Primarily I work with web
+        technologies though I love explore different realm of development.
+        Currently learning C and also exploring the world of AI.
       </p>
     </div>
 
     <div class="">
-      <h2 class="mb-4 font-medium underline underline-offset-4">Projects</h2>
+      <SectionHeader>Projects</SectionHeader>
       <ProjectSection />
     </div>
 
     <div>
-      <h2 class="mb-4 font-medium underline underline-offset-4">
-        Latest Wrtings
-      </h2>
+      <SectionHeader>Latest writings</SectionHeader>
       <section class="w-full">
         <div class="space-y-3">
           {

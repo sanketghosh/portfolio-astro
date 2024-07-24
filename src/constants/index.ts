@@ -27,23 +27,26 @@ export const SOCIAL_LINKS = [
     target: "_blank",
   },
   {
-    label: "X/Twitter",
+    label: "X-twitter",
     img: "./x.svg",
     link: "https://x.com/svnket",
     target: "_blank",
   },
-  {
-    label: "Mail",
-    img: "./mail.svg",
-    link: "mailto:code.sanket13@gmail.com",
-    target: "_blank",
-  },
-  {
-    label: "LinkedIn",
-    img: "./linkedin.svg",
-    link: "https://in.linkedin.com/in/sanketghosh",
-    target: "_blank",
-  },
+  /**
+ {
+   label: "Gmail",
+   img: "./mail.svg",
+   link: "mailto:code.sanket13@gmail.com",
+   target: "_blank",
+ },
+ {
+   label: "LinkedIn",
+   img: "./linkedin.svg",
+   link: "https://in.linkedin.com/in/sanketghosh",
+   target: "_blank",
+ },
+
+ */
 ];
 
 export const NAV_LINKS = [
@@ -54,9 +57,5 @@ export const NAV_LINKS = [
   {
     href: "/blog",
     label: "blog",
-  },
-  {
-    href: "/contact",
-    label: "contact",
   },
 ];

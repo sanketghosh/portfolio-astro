@@ -1,47 +1,53 @@
 ---
-import LinkCard from "./link-card.astro";
-
 const fake_project_data = [
   {
-    project: "Chatify",
-    desc: "Modern real-time messaging app.",
-    link: "https://github.com/sanketghosh",
-    isLive: true,
+    project: "Socilime",
+    desc: "A social media app, create post and connections with people from accross the world.",
+    link: "https://github.com/sanketghosh/socialime",
+    projectStatus: "active",
   },
   {
-    project: "EcoTrack",
-    desc: "Environmental impact tracker.",
-    link: "https://github.com/sanketghosh",
-    isLive: false,
+    project: "Flox",
+    desc: "A modern kanban project manager. Create workspace, board for organizing your tasks better and rapid work.",
+    link: "https://github.com/sanketghosh/flox",
+    projectStatus: "active",
   },
   {
     project: "HealthPal",
     desc: "Personal health care buddy.",
     link: "https://github.com/sanketghosh",
-    isLive: true,
+    projectStatus: "acquired",
   },
   {
     project: "BudgetWiz",
     desc: "Personal budget tracker.",
     link: "https://github.com/sanketghosh",
-    isLive: false,
+    projectStatus: null,
   },
 ];
 ---
 
 <section>
-  <div class="space-y-3">
+  <div class="space-y-5">
     {
-      fake_project_data.map((item) => (
-        <LinkCard link={item.link} target="_blank">
-          <div class="flex items-center gap-2">
-            <p class="cursor-pointer text-base font-bold text-blue-700">
+      fake_project_data.map((item, idx) => (
+        <div class="space-y-1">
+          <div class="flex items-center">
+            <a
+              href={item.link}
+              class="cursor-pointer text-base font-bold text-blue-700 underline underline-offset-4 transition-all hover:text-blue-500"
+            >
               {item.project}
-            </p>
-            {item.isLive && <div class="size-2 rounded-full bg-emerald-600" />}
+            </a>
+            {item.projectStatus && (
+              <span class="ml-3 select-none rounded-md border-[1.5px] border-black px-2 py-0.5 text-[10px] font-bold capitalize">
+                {" "}
+                {item.projectStatus}
+              </span>
+            )}
           </div>
-          <p class="text-sm font-medium text-zinc-500">{item.desc}</p>
-        </LinkCard>
+          <p class="font-medium">{item.desc}</p>
+        </div>
       ))
     }
   </div>

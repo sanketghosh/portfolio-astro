@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import SinglePostLayout from "../../../layouts/single-post-layout.astro";
+import BlogCard from "../../../components/blog-card.astro";
+import { removeHyphens } from "../../../utils/remove-hyphen";
+
+// const { tag } = Astro.params;
+
+// const allBlogArticles: CollectionEntry<"articles">[] = (
+//   await getCollection("articles")
+// ).sort(
+//   (a: CollectionEntry<"articles">, b: CollectionEntry<"articles">) =>
+//     b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+// );
+
+// const tagArticles = allBlogArticles.filter((blogPost) =>
+//   blogPost.data.tags.includes(tag),
+// );
+
+// Export getStaticPaths to define dynamic routes
+export async function getStaticPaths() {
+  // Fetch all blog articles inside getStaticPaths
+  const allBlogArticles: CollectionEntry<"articles">[] =
+    await getCollection("articles");
+
+  // Extract unique tags from all articles
+  const tags = Array.from(
+    new Set(allBlogArticles.flatMap((article) => article.data.tags)),
+  );
+
+  // Return an array of paths with tag parameters
+  return tags.map((tag) => ({
+    params: { tag },
+  }));
+}
+
+// Get the current tag from the URL parameters
+const { tag } = Astro.params;
+
+// Fetch all blog articles again for filtering
+const allBlogArticles: CollectionEntry<"articles">[] =
+  await getCollection("articles");
+
+// Filter articles based on the current tag
+const tagArticles = allBlogArticles.filter((blogPost) =>
+  blogPost.data.tags.includes(tag),
+);
+---
+
+<SinglePostLayout>
+  <h2 class="mb-6 text-lg font-extrabold">
+    Results for {removeHyphens(tag)}
+  </h2>
+  <div class="space-y-5">
+    {
+      tagArticles.map((blog) => (
+        <BlogCard
+          title={blog.data.title}
+          slug={blog.slug}
+          date={blog.data.publishDate}
+        />
+      ))
+    }
+  </div>
+</SinglePostLayout>

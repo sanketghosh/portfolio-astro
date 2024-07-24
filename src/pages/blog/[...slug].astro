@@ -2,6 +2,7 @@
 // components
 import SinglePostLayout from "../../layouts/single-post-layout.astro";
 import Link from "../../components/link.astro";
+import Tag from "../../components/tag.astro";
 
 //packages
 import { formatDate } from "../../utils/date-format";
@@ -56,39 +57,28 @@ const { Content } = await post.render();
 ---
 
 <SinglePostLayout title={post.data.title} description={post.data.title}>
-  <div class="flex items-center gap-3 pb-3">
-    <Link href={"/"} target={"_self"} label={"Home"} />
-    <Link href={"/blog"} target={"_self"} label={"Blog"} />
-  </div>
-
-  <div class="space-y-4 py-5 font-inter">
-    <h1 class="text-xl font-extrabold text-blue-700 md:text-2xl">
+  <div class="space-y-4 py-5">
+    <h1
+      class="text-lg font-bold text-blue-700 md:text-xl"
+      transition:name="astro-logo"
+    >
       {post.data.title}
     </h1>
-    <div class="rounded-md border bg-zinc-100/60 p-3">
-      <p class="text-lg font-semibold">
+    <div class="flex flex-col rounded-md border bg-zinc-50/70 p-3">
+      <p class="text-base font-semibold">
         {post.data.author}
       </p>
-      <p class="text-sm font-medium capitalize text-zinc-400">
+      <p class="text-sm font-medium capitalize text-zinc-500">
         {calculateReadingTime(getWordCount(post.body))} .
         {formatDate(post.data.publishDate)}
       </p>
     </div>
     <div class="flex flex-wrap gap-2">
-      {
-        post.data.tags.map((tag: string) => (
-          <a
-            href={"/blog/tag/" + tag}
-            class="cursor-pointer rounded-md bg-zinc-100 px-2 py-1.5 text-xs font-bold uppercase transition-all hover:bg-zinc-200/60"
-          >
-            {tag}
-          </a>
-        ))
-      }
+      {post.data.tags.map((tag: string) => <Tag tag={tag} />)}
     </div>
   </div>
 
-  <div class="my-4 h-0.5 w-full bg-zinc-500"></div>
+  <div class="my-4 h-0.5 w-full bg-zinc-300"></div>
 
   <div class="prose prose-base py-5 font-inter">
     <Content />
@@ -109,8 +99,4 @@ const { Content } = await post.render();
   </div>
 </SinglePostLayout>
 
-<style is:global>
-  pre {
-    @apply my-3 rounded-md p-2 font-jetbrains_mono text-lg font-semibold;
-  }
-</style>
+<!-- <style is:global></style> -->

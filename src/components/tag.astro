@@ -1,0 +1,22 @@
+---
+import { removeHyphens } from "../utils/remove-hyphen";
+
+type TagProps = {
+  tag: string;
+};
+
+const { tag } = Astro.props as TagProps;
+---
+
+<!-- <a
+  href={"/blog/tag/" + tag}
+  class="cursor-pointer rounded-md bg-zinc-50 px-2 py-1.5 text-xs font-bold uppercase transition-all hover:bg-zinc-100 hover:text-zinc-800"
+>
+  {tag}
+</a> -->
+<a
+  href={"/blog/tag/" + tag}
+  class="rounded-md border px-3 py-1 text-xs font-semibold capitalize tracking-tighter hover:bg-zinc-50"
+>
+  {removeHyphens(tag)}
+</a>

@@ -3,7 +3,14 @@ title: "Explaining attention is all you need. How it became so much talked about
 publishDate: 2024-02-11
 author: "sanketghosh"
 # image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHx8MA%3D%3D"
-tags: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "GPT", "Python"]
+tags:
+  [
+    "Artificial-Intelligence",
+    "Machine-Learning",
+    "Deep-Learning",
+    "GPT",
+    "Python",
+  ]
 slug: explaining-attention-is-all-you-need
 ---
 
@@ -48,5 +55,3 @@ If you're a developer who dabbles in game development or graphics-intensive task
 The HP Spectre x360 combines style and substance. It's a 2-in-1 laptop with a sleek design, a vivid touchscreen, and robust internals. It's perfect for developers who need flexibility in their work setup. With its long battery life and comfortable keyboard, you can code on the go or in tablet mode.
 
 In conclusion, the best laptop for developers in 2024 depends on your specific needs and preferences. Whether you prioritize power, portability, or a Linux-based environment, there's a laptop on this list to cater to your requirements. Take the time to assess your needs and budget, and you'll find the perfect coding companion to kickstart your productive year as a developer.
-
-

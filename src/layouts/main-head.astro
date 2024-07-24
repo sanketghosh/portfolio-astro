@@ -5,6 +5,7 @@ interface MainHeadProps {
 }
 
 const { title, description } = Astro.props as MainHeadProps;
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <head>
@@ -14,4 +15,5 @@ const { title, description } = Astro.props as MainHeadProps;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <ViewTransitions />
 </head>

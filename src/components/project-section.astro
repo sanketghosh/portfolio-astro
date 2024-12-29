@@ -1,12 +1,18 @@
 ---
 const fake_project_data = [
   {
-    project: "Socilime",
-    desc: "A social media app, create post and connections with people from accross the world.",
+    project: "formtopia",
+    desc: "A custom drag and drop form builder.",
     link: "https://github.com/sanketghosh/socialime",
     projectStatus: "active",
   },
   {
+    project: "nod.sh",
+    desc: "Simple and minimal link shortener.",
+    link: "https://github.com/sanketghosh/socialime",
+    projectStatus: "active",
+  },
+  /*  {
     project: "Flox",
     desc: "A modern kanban project manager. Create workspace, board for organizing your tasks better and rapid work.",
     link: "https://github.com/sanketghosh/flox",
@@ -23,7 +29,7 @@ const fake_project_data = [
     desc: "Personal budget tracker.",
     link: "https://github.com/sanketghosh",
     projectStatus: null,
-  },
+  }, */
 ];
 ---
 
@@ -40,7 +46,7 @@ const fake_project_data = [
               {item.project}
             </a>
             {item.projectStatus && (
-              <span class="ml-3 select-none rounded-md border-[1.5px] border-black px-2 py-0.5 text-[10px] font-bold capitalize">
+              <span class="ml-3 select-none rounded-full border-[1.5px] border-black px-2 py-0.5 text-[10px] font-bold capitalize">
                 {" "}
                 {item.projectStatus}
               </span>

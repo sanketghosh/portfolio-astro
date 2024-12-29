@@ -6,7 +6,7 @@ const path = Astro.url.pathname;
 
 <section class="space-y-6">
   <div class="space-y-4 text-black">
-    <h1 class="text-xl font-bold md:text-2xl">Sanket Ghosh</h1>
+    <h1 class="text-xl font-bold md:text-2xl">@svnket</h1>
     <div class="grid w-36 grid-cols-2 gap-4">
       {
         SOCIAL_LINKS.map((link) => (
@@ -27,10 +27,8 @@ const path = Astro.url.pathname;
               stroke-linejoin="round"
               class="lucide lucide-arrow-up-right"
             >
-              <>
-                <path d="M7 7h10v10" />
-                <path d="M7 17 17 7" />
-              </>
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
             </svg>
           </a>
         ))
@@ -43,7 +41,7 @@ const path = Astro.url.pathname;
       NAV_LINKS.map((link) => (
         <a
           href={link.href}
-          class={`text-sm font-extrabold capitalize hover:text-black ${path === link.href ? "text-black underline underline-offset-8" : "text-zinc-500"}`}
+          class={`text-sm font-medium capitalize hover:text-black ${path === link.href ? "text-black underline underline-offset-8" : "text-zinc-500"}`}
         >
           {link.label}
         </a>
